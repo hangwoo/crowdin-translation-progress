@@ -13,18 +13,22 @@ try {
     }
   }).then(responseToJson)
     .then(result => {
-      console.log(result);
-      const data = result.data;
-    const progress = languages.map(languageId => getProgress({ data, languageId }));
-    progress.forEach((result, index) => {
-      core.setOutput(`${languages[index]} progress`, result);
-      if (Number(result) < Number(targetProgress)) {
-        const err = new Error("Low progress");
-        err.message = `Lower than target progress in languageId:${languages[index]}`;
+      if (result.error) {
+        const err = new Error()
+        err.message = result.error.message;
         throw err;
       }
-    });
-  }).catch(err => {
+      const data = result.data;
+      const progress = languages.map(languageId => getProgress({ data, languageId }));
+      progress.forEach((result, index) => {
+        core.setOutput(`${languages[index]} progress`, result);
+        if (Number(result) < Number(targetProgress)) {
+          const err = new Error("Low progress");
+          err.message = `Lower than target progress in languageId:${languages[index]}`;
+          throw err;
+        }
+      });
+    }).catch(err => {
     core.setFailed(err.message);
   });
 } catch (error) {
