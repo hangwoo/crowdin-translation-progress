@@ -40,6 +40,7 @@ function getProgress({
   languageId,
 }) {
   const dt = data.find(result => result.data.languageId === languageId);
+  console.log('dt', dt);
   return dt.translationProgress;
 }
 
