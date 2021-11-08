@@ -13,3 +13,4 @@ jobs:
         with:
           access_token: ${{ secrets.CROWDIN_ACCESS_TOKEN }}
           languages: 'ja'
+          project_id: '392841'
