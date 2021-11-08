@@ -1,5 +1,5 @@
 const core = require("@actions/core");
-require('node-fetch');
+const fetch = require('node-fetch');
 
 try {
   const token = core.getInput('access_token');
