@@ -45,8 +45,5 @@ function getProgress({
 }
 
 function responseToJson(response) {
-  return response.json().then(json => ({
-    response,
-    json,
-  }));
+  return response.json().then(json => json);
 }
