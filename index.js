@@ -18,6 +18,7 @@ try {
         err.message = result.error.message;
         throw err;
       }
+      console.log(result);
       const data = result.data;
       const progress = languages.map(languageId => getProgress({ data, languageId }));
       progress.forEach((result, index) => {
