@@ -1,11 +1,22 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'crowdin translation progress'
+description: 'Get language translation progress'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  access_token:  # id of input
+    description: 'crowdin api access token'
     required: true
-    default: 'World'
+  languages:
+    description: 'languages you want'
+    required: true
+  project_id:
+    description: "project id"
+    required: true
+  target_progress:
+    description: "target progress"
+    required: false
+    default: "100"
 outputs:
+  progress:
+    description: 'language translation progress'
   time: # id of output
     description: 'The time we greeted you'
 runs:
