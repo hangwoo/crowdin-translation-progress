@@ -12,7 +12,9 @@ try {
       "Authorization" : `Bearer ${token}`,
     }
   }).then(responseToJson)
-    .then(({ data }) => {
+    .then(result => {
+      console.log(result);
+      const data = result.data;
     const progress = languages.map(languageId => getProgress({ data, languageId }));
     progress.forEach((result, index) => {
       core.setOutput(`${languages[index]} progress`, result);
