@@ -18,11 +18,10 @@ try {
         err.message = result.error.message;
         throw err;
       }
-      console.log(result);
       const data = result.data;
       const progress = languages.map(languageId => getProgress({ data, languageId }));
       progress.forEach((result, index) => {
-        core.setOutput(`${languages[index]} progress`, result);
+        console.log(`${languages[index]} progress`, result);
         if (Number(result) < Number(targetProgress)) {
           const err = new Error("Low progress");
           err.message = `Lower than target progress in languageId:${languages[index]}`;
