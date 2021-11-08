@@ -22,7 +22,7 @@ try {
       }
     });
   }).catch(err => {
-    throw err;
+    core.setFailed(err.message);
   });
 } catch (error) {
   core.setFailed(error.message);
