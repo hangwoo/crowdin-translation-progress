@@ -1,8 +1,7 @@
 {
   "name": "crowdin-action",
   "version": "1.0.0",
-  "type": "module",
-  "description": "",
+  "description": "check crowdin translation progress about specific language",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
