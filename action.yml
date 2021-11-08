@@ -1,24 +1,19 @@
 name: 'crowdin translation progress'
 description: 'Get language translation progress'
 inputs:
-  access_token:  # id of input
+  access_token:  # 크라우딘 API 엑세스 토큰
     description: 'crowdin api access token'
     required: true
-  languages:
+  languages: # 진행률 를 알고싶은 languageId. (ex: "ja", "ja, ko")
     description: 'languages you want'
     required: true
   project_id:
     description: "project id"
     required: true
-  target_progress:
+  target_progress: # 목표 진행률, 넘으면 성공
     description: "target progress"
     required: false
     default: "100"
-outputs:
-  progress:
-    description: 'language translation progress'
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
   using: 'node12'
   main: 'index.js'

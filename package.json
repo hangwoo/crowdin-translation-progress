@@ -1,13 +1,10 @@
 {
   "name": "crowdin-action",
   "version": "1.0.0",
-  "description": "check crowdin translation progress about specific language",
+  "description": "Check crowdin translation progress about specific language",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": ["crowdin"],
+  "author": "hangwoo",
   "license": "ISC",
   "dependencies": {
     "@actions/core": "^1.6.0",

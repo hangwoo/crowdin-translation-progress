@@ -14,21 +14,20 @@ try {
   }).then(responseToJson)
     .then(result => {
       if (result.error) {
-        const err = new Error()
-        err.message = result.error.message;
-        throw err;
+        core.setFailed(result.error.message);
       }
       const data = result.data;
       const progress = languages.map(languageId => getProgress({ data, languageId }));
+
       progress.forEach((result, index) => {
         console.log(`${languages[index]} progress`, result);
         if (Number(result) < Number(targetProgress)) {
-          const err = new Error("Low progress");
-          err.message = `Lower than target progress in languageId:${languages[index]}`;
-          throw err;
+          console.log(`Language id: ${languages[index]}`);
+          core.setFailed(`Lower than target progress(target: ${targetProgress}%, current: ${result}%)`);
         }
       });
-    }).catch(err => {
+    })
+    .catch(err => {
     core.setFailed(err.message);
   });
 } catch (error) {
