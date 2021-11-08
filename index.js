@@ -11,7 +11,8 @@ try {
       "content-type": "applications/json",
       "Authorization" : `Bearer ${token}`,
     }
-  }).then(({ data }) => {
+  }).then(responseToJson)
+    .then(({ data }) => {
     const progress = languages.map(languageId => getProgress({ data, languageId }));
     progress.forEach((result, index) => {
       core.setOutput(`${languages[index]} progress`, result);
@@ -34,4 +35,11 @@ function getProgress({
 }) {
   const dt = data.find(result => result.data.languageId === languageId);
   return dt.translationProgress;
+}
+
+function responseToJson(response) {
+  return response.json().then(json => ({
+    response,
+    json,
+  }));
 }
