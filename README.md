@@ -4,7 +4,7 @@
 
 ```yaml
  - name: Crowdin translation progress
-   uses: hangwoo/crowdin-translation-progress@v1.0.0
+   uses: hangwoo/crowdin-translation-progress@v1.0.1
    with:
      access_token: ACCESS_TOKEN # use github secret
      languages: 'ja'
