@@ -5,8 +5,9 @@ try {
   const token = core.getInput('access_token');
   const languages = core.getInput('languages').split(',');
   const projectId = core.getInput('project_id');
+  const branchId = core.getInput('branch_id');
   const targetProgress = core.getInput("target_progress");
-  fetch(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress`, {
+  fetch(branchId ? `https://api.crowdin.com/api/v2/projects/${projectId}/branches/${branchId}/languages/progress` : `https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress`, {
     headers: {
       "content-type": "applications/json",
       "Authorization" : `Bearer ${token}`,
