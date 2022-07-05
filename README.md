@@ -9,6 +9,6 @@
      access_token: ACCESS_TOKEN # use github secret
      languages: 'ja'
      project_id: '392841'
-     branch_id: '113' // optional
+     branch_id: '113' # optional
      target_progress: '100' # optional. default 100
 ```
