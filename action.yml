@@ -10,6 +10,9 @@ inputs:
   project_id:
     description: "project id"
     required: true
+  branch_id:
+    description: "branch id"
+    required: false
   target_progress: # 목표 진행률, 넘으면 성공
     description: "target progress"
     required: false
