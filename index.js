@@ -17,7 +17,7 @@ try {
       if (result.error) {
         core.setFailed(result.error.message);
       }
-      console.warn('data:', result.data);
+      console.warn('data:', result);
       const data = result.data;
       const progress = languages.map(languageId => getProgress({ data, languageId }));
 
